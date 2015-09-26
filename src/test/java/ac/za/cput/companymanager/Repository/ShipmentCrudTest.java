@@ -23,7 +23,7 @@ public class ShipmentCrudTest extends AbstractTestNGSpringContextTests {
     @Test
     public void insert() throws Exception {
 
-        Shipment shipment1 = ShipmentFactory.createShipment("05-06-2014", "Mohammad Isaacs");
+        /*Shipment shipment1 = ShipmentFactory.createShipment("05-06-2014", "Mohammad Isaacs");
         repository.save(shipment1);
 
         Shipment shipment2 = ShipmentFactory.createShipment("13-03-2015", "Mohammad Isaacs");
@@ -41,10 +41,10 @@ public class ShipmentCrudTest extends AbstractTestNGSpringContextTests {
         Assert.assertEquals("Mohammad Isaacs", shipment2.getDriver());
 
         Assert.assertEquals("06-01-2015", shipment3.getDate());
-        Assert.assertEquals("Michael Johnson", shipment3.getDriver());
+        Assert.assertEquals("Michael Johnson", shipment3.getDriver());*/
     }
 
-    @Test(dependsOnMethods = "insert")
+    /*@Test(dependsOnMethods = "insert")
     public void read() throws Exception {
 
         Shipment shipment = repository.findOne(id);
@@ -52,7 +52,7 @@ public class ShipmentCrudTest extends AbstractTestNGSpringContextTests {
         Assert.assertNotNull(shipment.getOrderNumber());
         Assert.assertEquals("06-01-2015", shipment.getDate());
         Assert.assertEquals("Michael Johnson", shipment.getDriver());
-    }
+    }*/
 
     /*@Test
     public void update() throws Exception {

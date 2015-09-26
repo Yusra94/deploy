@@ -2,6 +2,7 @@ package ac.za.cput.companymanager.api;
 
 import ac.za.cput.companymanager.Model.CustomerResource;
 import ac.za.cput.companymanager.Service.CustomerService;
+import ac.za.cput.companymanager.Service.OrderService;
 import ac.za.cput.companymanager.domain.Customer;
 import ac.za.cput.companymanager.domain.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,26 +16,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value="/orders/**")
-public class CustomerOrdersPage {
+public class OrdersPage {
 
-    @Autowired
-    private CustomerService service;
+   /* @Autowired
+    private OrderService orderService;
+
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public List<Orders> getCustomerOrders(@PathVariable Long id)
     {
-        //List<CustomerResource> hateos = new ArrayList<>();
+        return orderService.getCustomerOrdersById(id);
+    }*/
 
-       // List<Orders> customerOrders = new ArrayList<>();
+    /*@RequestMapping(value="/all", method=RequestMethod.GET)
+    public List<Orders> getAllOrders()
+    {
+        return orderService.getAllOrders();
+    }*/
 
-        return service.getOrders(id);
-
-
-//        return service.getAllOrders(id);
-    }
-
-    @RequestMapping(value="/customerorders", method=RequestMethod.GET)
-
-    public List<CustomerResource> getCustomers() {
+    /*public List<CustomerResource> getCustomers() {
         List<CustomerResource> hateos = new ArrayList<>();
         List<Customer> customers = service.getCustomer();
         for (Customer customer : customers) {
@@ -46,7 +45,7 @@ public class CustomerOrdersPage {
             hateos.add(res);
         }
         return hateos;
-    }
+    }*/
 
 
 }

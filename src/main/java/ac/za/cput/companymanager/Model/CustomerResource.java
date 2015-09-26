@@ -68,6 +68,7 @@ public class CustomerResource extends ResourceSupport{
 
         public CustomerResource build()
         {
+
             return new CustomerResource(this);
         }
     }

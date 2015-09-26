@@ -33,8 +33,8 @@ public class CustomerOrdersServiceTest extends AbstractTransactionalTestNGSpring
 
         ordersList = new ArrayList<>();
 
-        Orders orders1 = OrderFactory.createOrder("12-3-2015", 300.00, null);
-        Orders orders2 = OrderFactory.createOrder("10-2-2015", 1500.00, null);
+        Orders orders1 = OrderFactory.createOrder("12-3-2015", 300.00, null, 2L);
+        Orders orders2 = OrderFactory.createOrder("10-2-2015", 1500.00, null, 2L);
         ordersList.add(orders1);
         ordersList.add(orders2);
 

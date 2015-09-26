@@ -30,7 +30,7 @@
       <column name="customer_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="customer_surname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="customerid"/>
-      <exported-key name="FK_kw5wkfb0p26e49s41p663br5o" table="orders" schema="" catalog="companydb" columns="order_customerid"/>
+      <exported-key name="FK_mgd77x0tbc1sjen2x8iulwcpa" table="orders" schema="" catalog="companydb" columns="orders_list"/>
     </table>
     <table name="factory_worker" schema="" catalog="companydb" type="TABLE">
       <column name="employeeid" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -50,11 +50,11 @@
       <column name="order_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <column name="order_date" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="total_sales" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <column name="order_customerid" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="orders_list" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="order_number"/>
-      <foreign-key name="FK_kw5wkfb0p26e49s41p663br5o" columns="order_customerid" ref-table="customer" ref-schema="" ref-catalog="companydb" ref-columns="customerid" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="FK_kx3403hh8w9oa6bbbaujd9skl" table="product" schema="" catalog="companydb" columns="order_products"/>
-      <index name="FK_kw5wkfb0p26e49s41p663br5o" unique="false" columns="order_customerid"/>
+      <foreign-key name="FK_mgd77x0tbc1sjen2x8iulwcpa" columns="orders_list" ref-table="customer" ref-schema="" ref-catalog="companydb" ref-columns="customerid" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_tc2vnvfsb4raq5hq8ax4gvawe" table="product" schema="" catalog="companydb" columns="product_list"/>
+      <index name="FK_mgd77x0tbc1sjen2x8iulwcpa" unique="false" columns="orders_list"/>
     </table>
     <table name="product" schema="" catalog="companydb" type="TABLE">
       <column name="product_number" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -62,11 +62,11 @@
       <column name="product_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="qty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="selling_price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <column name="order_products" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="product_list" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="PRIMARY" columns="product_number"/>
-      <foreign-key name="FK_kx3403hh8w9oa6bbbaujd9skl" columns="order_products" ref-table="orders" ref-schema="" ref-catalog="companydb" ref-columns="order_number" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_tc2vnvfsb4raq5hq8ax4gvawe" columns="product_list" ref-table="orders" ref-schema="" ref-catalog="companydb" ref-columns="order_number" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_9u7mhbth8nse1crnr8bhack7k" table="raw_material" schema="" catalog="companydb" columns="product_materials"/>
-      <index name="FK_kx3403hh8w9oa6bbbaujd9skl" unique="false" columns="order_products"/>
+      <index name="FK_tc2vnvfsb4raq5hq8ax4gvawe" unique="false" columns="product_list"/>
     </table>
     <table name="raw_material" schema="" catalog="companydb" type="TABLE">
       <column name="raw_material_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
@@ -95,6 +95,11 @@
       <column name="supplier_phone_number" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="supplier_id"/>
       <exported-key name="FK_r2qkkpv6mtsfgk9tt9cbgb9m4" table="raw_material" schema="" catalog="companydb" columns="supplier_material"/>
+    </table>
+    <table name="user" schema="" catalog="companydb" type="TABLE">
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="username"/>
     </table>
   </data-source>
 </component>

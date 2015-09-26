@@ -4,6 +4,7 @@ import ac.za.cput.companymanager.Service.OrderService;
 import ac.za.cput.companymanager.domain.Customer;
 import ac.za.cput.companymanager.domain.Orders;
 import ac.za.cput.companymanager.repository.CustomerRepository;
+import ac.za.cput.companymanager.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,10 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     CustomerRepository repository;
 
-    @Override
+    @Autowired
+    OrderRepository orderRepository;
+
+    /*@Override
     public List<Customer> getCustomer()
     {
         List<Customer> customerList = new ArrayList<>();
@@ -28,11 +32,25 @@ public class OrderServiceImpl implements OrderService{
         }
 
         return customerList;
+    }*/
+
+    @Override
+    public List<Orders> getCustomerOrdersById(Long customerID) {
+        return repository.findOne(customerID).getOrderses();
     }
 
     @Override
-    public List<Orders> getCustomerOrdersById(Long id) {
-        return repository.findOne(id).getOrderses();
+    public List<Orders> getAllOrders(){
+
+        List<Orders> ordersList = new ArrayList<>();
+        Iterable<Orders> ordersIterable = orderRepository.findAll();
+
+        for(Orders o : ordersIterable)
+        {
+            ordersList.add(o);
+        }
+
+        return ordersList;
     }
 
     /*@Override

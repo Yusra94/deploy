@@ -24,7 +24,7 @@ public class SupplierCrudTest extends AbstractTestNGSpringContextTests {
     @Test
     public void insert() throws Exception {
 
-        Supplier supplier1 = SupplierFactory.createSupplier("Johnson's Laundry", "Riebeek Street", "JL@gmail", "0214478869", null);
+        /*Supplier supplier1 = SupplierFactory.createSupplier("Johnson's Laundry", "Riebeek Street", "JL@gmail", "0214478869", null);
         repository.save(supplier1);
 
         Supplier supplier2 = SupplierFactory.createSupplier("Clean Stuff", "Searle Street", "CS@gmail", "0214478869", null);
@@ -50,10 +50,12 @@ public class SupplierCrudTest extends AbstractTestNGSpringContextTests {
         Assert.assertEquals("CF@gmail",supplier3.getSupplierEmail());
         Assert.assertEquals("0214475698",supplier3.getSupplierPhoneNumber());
 
+        */
+
 
 
     }
-
+/*
     @Test(dependsOnMethods = "insert")
     public void read() throws Exception {
 
@@ -65,6 +67,7 @@ public class SupplierCrudTest extends AbstractTestNGSpringContextTests {
         Assert.assertEquals("0214475698",supplier.getSupplierPhoneNumber());
 
     }
+    */
 
     /*@Test
     public void update() throws Exception {

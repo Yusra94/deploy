@@ -17,7 +17,7 @@ public class CustomerServiceImpl implements CustomerService{
     CustomerRepository repository;
 
     @Override
-    public List<Customer> getCustomer()
+    public List<Customer> getAllCustomers()
     {
         List<Customer> customerList = new ArrayList();
         Iterable<Customer> customerIterable = repository.findAll();
@@ -27,6 +27,7 @@ public class CustomerServiceImpl implements CustomerService{
         return customerList;
     }
 
+    /*NOT USED*/
     @Override
     public List<Orders> getOrders(Long id)
     {

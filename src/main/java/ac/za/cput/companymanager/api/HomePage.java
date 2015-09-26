@@ -10,16 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/**")
+@RequestMapping("/home/**")
 public class HomePage {
-    @Autowired
-    private CustomerService service;
-    @RequestMapping(value = "home",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     public String Index(){
-        return "This is a Home Page";
+        return "Welcome to Duma Chemicals!";
     }
 
-    @RequestMapping(value = "/customer",method = RequestMethod.GET)
+    /*@RequestMapping(value = "/customer",method = RequestMethod.GET)
     public Customer getCCustomer(){
         Customer cust = new Customer.Builder("Yusra").build();
 
@@ -31,7 +30,7 @@ public class HomePage {
 
 
         return service.getCustomer();
-    }
+    }*/
 
 
 

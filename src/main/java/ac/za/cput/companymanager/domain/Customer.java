@@ -17,7 +17,7 @@ public class Customer{
     private String CustomerPhoneNumber;
     private String customerEmailAddress;
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @JoinColumn(name="order_customerID")
+    @JoinColumn(name="OrdersList")
     private List<Orders> orderses;
 
     public Customer()

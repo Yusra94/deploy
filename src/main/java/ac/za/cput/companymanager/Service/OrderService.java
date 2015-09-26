@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface OrderService {
 
-    public List<Customer> getCustomer();
+   // public Customer getCustomer();
     public List<Orders> getCustomerOrdersById(Long id);
+    public List<Orders> getAllOrders();
 }
