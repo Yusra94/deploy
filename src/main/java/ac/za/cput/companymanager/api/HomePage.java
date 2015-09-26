@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/home/**")
+@RequestMapping("/")
 public class HomePage {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String Index(){
         return "Welcome to Duma Chemicals!";
     }

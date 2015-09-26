@@ -5,7 +5,7 @@ import ac.za.cput.companymanager.domain.Orders;
 
 import java.util.List;
 
-public interface CustomerService {
+public interface CustomerService extends Service<Customer, Long>{
 
         List<Customer> getAllCustomers();
         List<Orders> getOrders(Long customerID);

@@ -3,10 +3,11 @@ package ac.za.cput.companymanager.api;
 import ac.za.cput.companymanager.Service.CustomerService;
 import ac.za.cput.companymanager.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -30,4 +31,14 @@ public class CustomersPage {
     {
         return service.getCustomer();
     }*/
+
+    @RequestMapping(value="/create", method = RequestMethod.POST)
+    public ResponseEntity<Void> createCustomer(@RequestBody Customer customer, UriComponentsBuilder ucBuilder)
+    {
+        service.create(customer);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(ucBuilder.path("/all").buildAndExpand(customer.getCustomerID()).toUri());
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+    }
 }

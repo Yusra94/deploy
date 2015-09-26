@@ -34,4 +34,39 @@ public class CustomerServiceImpl implements CustomerService{
         return repository.findOne(id).getOrderses();
     }
 
+    @Override
+    public Customer findById(Long id){
+
+        return repository.findOne(id);
+    }
+
+    @Override
+    public Customer create(Customer entity){
+
+        return repository.save(entity);
+    }
+
+    @Override
+    public Customer edit(Customer entity){
+
+        return repository.save(entity);
+    }
+
+    @Override
+    public void delete(Customer entity){
+
+        repository.delete(entity);
+    }
+
+    @Override
+    public List<Customer> findAll()
+    {
+        List<Customer> customerList = new ArrayList();
+        Iterable<Customer> customerIterable = repository.findAll();
+        for (Customer customer : customerIterable) {
+            customerList.add(customer);
+        }
+        return customerList;
+    }
+
 }
