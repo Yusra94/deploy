@@ -3,10 +3,11 @@ package ac.za.cput.companymanager.domain;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Customer{
+public class Customer implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,11 +75,11 @@ public class Customer{
             this.customerName = name;
         }
 
-       /* public Builder customerName(String name){
+        public Builder customerID(Long id){
 
-            this.customerName = name;
+            this.customerID = id;
             return this;
-        }*/
+        }
         public Builder customerSurname(String surname){
 
             this.customerSurname = surname;
