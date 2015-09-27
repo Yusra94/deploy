@@ -5,6 +5,7 @@ import ac.za.cput.companymanager.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -26,13 +27,7 @@ public class CustomersPage {
     {
         return service.getAllCustomers();
     }
-
-   /* @RequestMapping(value= "/{id}", method = RequestMethod.GET)
-    public Customer getCustomer(@PathVariable Long id)
-    {
-        return service.getCustomer();
-    }*/
-
+	
     @RequestMapping(value="/create", method = RequestMethod.POST)
     public ResponseEntity<Void> createCustomer(@RequestBody Customer customer, UriComponentsBuilder ucBuilder)
     {
@@ -61,14 +56,25 @@ public class CustomersPage {
     }
 
     @RequestMapping(value = "delete/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") long id, @RequestBody Customer cus) {
 
-        Customer Customer = service.findById(id);
-        if (Customer == null) {
+        Customer customer = service.findById(id);
+		
+        if (customer == null) {
             return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
         }
 
-        service.delete(Customer);
+        service.delete(customer);
         return new ResponseEntity<Customer>(HttpStatus.OK);
     }
+	
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id) {
+        Customer customer = service.findById(id);
+        if (customer == null) {
+            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+    }
+	
 }
