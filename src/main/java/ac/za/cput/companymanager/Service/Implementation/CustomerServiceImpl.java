@@ -43,6 +43,7 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customer create(Customer entity){
 
+        System.out.println("CustomerServiceImpl = create...saving to DB");
         return repository.save(entity);
     }
 

@@ -20,6 +20,7 @@ public class CustomersPage {
 
     @Autowired
     private CustomerService service;
+
     @RequestMapping(value= "/all", method = RequestMethod.GET)
     public List<Customer> getAllCustomers()
     {
@@ -39,6 +40,35 @@ public class CustomersPage {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/all").buildAndExpand(customer.getCustomerID()).toUri());
+        System.out.println("Customers page = ResponeEntity = Create customer");
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+
+    }
+
+    @RequestMapping(value = "update/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long id, @RequestBody Customer Customer) {
+
+        Customer cust = service.findById(id);
+
+        if (cust==null) {
+            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+        }
+
+        Customer newCustomer = new Customer
+                .Builder(cust.getCustomerName()).customerSurname(cust.getCustomerSurname()).phoneNumber(cust.getCustomerPhoneNumber()).emailAddress(cust.getCutomerEmailAddress()).customerAddress(cust.getCustomerAddress()).build();
+        service.edit(newCustomer);
+        return new ResponseEntity<Customer>(newCustomer, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
+
+        Customer Customer = service.findById(id);
+        if (Customer == null) {
+            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+        }
+
+        service.delete(Customer);
+        return new ResponseEntity<Customer>(HttpStatus.OK);
     }
 }
