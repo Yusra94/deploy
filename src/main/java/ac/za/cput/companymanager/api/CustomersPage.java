@@ -29,7 +29,7 @@ public class CustomersPage {
         if(customerList.isEmpty()){
             return new ResponseEntity<List<Customer>>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<List<Customer>>(customerList,HttpStatus.NOT_FOUND.OK);
+        return new ResponseEntity<List<Customer>>(customerList,HttpStatus.OK);
     }
 	
     @RequestMapping(value="/create", method = RequestMethod.POST)
@@ -75,9 +75,9 @@ public class CustomersPage {
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Customer> getCustomer(@PathVariable("id") long id) {
         Customer customer = service.findById(id);
-        //if (customer == null) {
-            //return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
-        //}
+        if (customer == null) {
+            return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+        }
         return new ResponseEntity<Customer>(customer, HttpStatus.OK);
     }
 	
