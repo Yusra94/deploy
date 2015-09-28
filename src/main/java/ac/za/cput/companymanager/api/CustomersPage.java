@@ -23,9 +23,13 @@ public class CustomersPage {
     private CustomerService service;
 
     @RequestMapping(value= "/all", method = RequestMethod.GET)
-    public List<Customer> getAllCustomers()
+    public ResponseEntity<List<Customer>> getAllCustomers()
     {
-        return service.getAllCustomers();
+        List<Customer> customerList = service.findAll();
+        if(customerList.isEmpty()){
+            return new ResponseEntity<List<Customer>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<List<Customer>>(customerList,HttpStatus.NOT_FOUND.OK);
     }
 	
     @RequestMapping(value="/create", method = RequestMethod.POST)
