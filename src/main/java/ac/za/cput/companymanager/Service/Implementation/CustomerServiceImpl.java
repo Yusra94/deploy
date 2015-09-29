@@ -28,11 +28,11 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     /*NOT USED*/
-    @Override
+   /* @Override
     public List<Orders> getOrders(Long id)
     {
         return repository.findOne(id).getOrderses();
-    }
+    }*/
 
     @Override
     public Customer findById(Long id){

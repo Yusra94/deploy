@@ -27,13 +27,13 @@ public class CustomerCrudTest extends AbstractTestNGSpringContextTests{
     @Test
     public void insert() throws Exception {
 
-        Customer customer1 = CustomerFactory.createCustomer("Yusra", "Ismail", "Home", "0768954126", "@gmail", null);
+        Customer customer1 = CustomerFactory.createCustomer("Yusra", "Ismail", "Home", "0768954126", "@gmail");
         repository.save(customer1);
 
-        Customer customer2 = CustomerFactory.createCustomer("Miles", "Teller", "Washington", "5550123456", "@yahoo", null);
+        Customer customer2 = CustomerFactory.createCustomer("Miles", "Teller", "Washington", "5550123456", "@yahoo");
         repository.save(customer2);
 
-        Customer customer3 = CustomerFactory.createCustomer("Harold", "Barnes", "Sydney, Australia", "999223455", "@hotmail", null);
+        Customer customer3 = CustomerFactory.createCustomer("Harold", "Barnes", "Sydney, Australia", "999223455", "@hotmail");
         repository.save(customer3);
 
        // id = customer2.getCustomerID();

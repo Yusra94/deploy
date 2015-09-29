@@ -34,10 +34,10 @@ public class OrderServiceImpl implements OrderService{
         return customerList;
     }*/
 
-    @Override
+    /*@Override
     public List<Orders> getCustomerOrdersById(Long customerID) {
         return repository.findOne(customerID).getOrderses();
-    }
+    }*/
 
     @Override
     public List<Orders> getAllOrders(){

@@ -8,7 +8,7 @@ import java.util.List;
 public interface CustomerService extends Service<Customer, Long>{
 
         List<Customer> getAllCustomers();
-        List<Orders> getOrders(Long customerID);
+        //List<Orders> getOrders(Long customerID);
 
 }
 

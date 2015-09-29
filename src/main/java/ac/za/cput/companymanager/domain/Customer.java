@@ -14,12 +14,14 @@ public class Customer implements Serializable{
     private Long customerID;
     private String customerName;
     private String customerSurname;
-    private String customerAddress;
     private String CustomerPhoneNumber;
     private String customerEmailAddress;
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private String customerAddress;
+
+
+    /*@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name="OrdersList")
-    private List<Orders> orderses;
+    private List<Orders> orderses;*/
 
     public Customer()
     {}
@@ -31,7 +33,7 @@ public class Customer implements Serializable{
         this.customerAddress = builder.customerAddress;
         this.CustomerPhoneNumber = builder.customerPhoneNumber;
         this.customerEmailAddress = builder.customerEmailAddress;
-        this.orderses = builder.orderses;
+        //this.orderses = builder.orderses;
     }
 
     public Long getCustomerID() {
@@ -58,7 +60,7 @@ public class Customer implements Serializable{
         return customerEmailAddress;
     }
 
-    public  List<Orders> getOrderses(){return orderses;}
+   // public  List<Orders> getOrderses(){return orderses;}
 
     public static class Builder
     {
@@ -68,7 +70,7 @@ public class Customer implements Serializable{
         private String customerAddress;
         private String customerPhoneNumber;
         private String customerEmailAddress;
-        private List<Orders> orderses;
+        //private List<Orders> orderses;
 
         public Builder(String name)
         {
@@ -104,11 +106,11 @@ public class Customer implements Serializable{
             return this;
         }
 
-        public Builder orderList(List<Orders> value)
+        /*public Builder orderList(List<Orders> value)
         {
             this.orderses = value;
             return this;
-        }
+        }*/
 
         public Builder copy(Customer value)
         {
@@ -117,7 +119,7 @@ public class Customer implements Serializable{
             this.customerAddress = value.customerAddress;
             this.customerEmailAddress = value.customerEmailAddress;
             this.customerPhoneNumber = value.CustomerPhoneNumber;
-            this.orderses = value.orderses;
+           // this.orderses = value.orderses;
             return this;
         }
 

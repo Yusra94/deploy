@@ -37,7 +37,7 @@ public class CustomerTest {
         ordersList = new ArrayList<Orders>();
         ordersList.add(orders);
 
-        customer = CustomerFactory.createCustomer("Yusra", "Ismail", "22 Leeubekkie", "0768954126","yusraismail17@gmail.com", ordersList);
+        customer = CustomerFactory.createCustomer("Yusra", "Ismail", "22 Leeubekkie", "0768954126","yusraismail17@gmail.com");
         //customer = new Customer.Builder(12345).customerName("Harry").customerSurname("Potter").customerAddress("Hogwarts").emailAddress("HarryP@yahoo.com").phoneNumber("55512345").orderList(ordersList).build();
 
     }
@@ -72,10 +72,10 @@ public class CustomerTest {
         Assert.assertEquals("0768954126", customer.getCustomerPhoneNumber());
     }
 
-    @Test
+    /*@Test
     public void testCustomerOrdersList() throws Exception {
 
         Assert.assertEquals(ordersList, customer.getOrderses());
 
-    }
+    }*/
 }

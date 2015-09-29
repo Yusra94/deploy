@@ -38,7 +38,7 @@ public class CustomerOrdersServiceTest extends AbstractTransactionalTestNGSpring
         ordersList.add(orders1);
         ordersList.add(orders2);
 
-        Customer customer = CustomerFactory.createCustomer("Riyaaz", "Rawoot", "Steenberg", "021702115522","gmail", ordersList);
+        Customer customer = CustomerFactory.createCustomer("Riyaaz", "Rawoot", "Steenberg", "021702115522","gmail");
 
         customerRepository.save(customer);
         id = customer.getCustomerID();
